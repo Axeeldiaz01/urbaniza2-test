@@ -1,0 +1,200 @@
+/* =============================================================
+   LAYOUT.CSS — Header, Navegación y Menú Móvil
+   ============================================================= */
+
+
+/* ── 1. HEADER ──────────────────────────────────────────────── */
+header {
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  width: 100%;
+  /* CAMBIO: height fluida — antes fija 90px */
+  height: clamp(70px, 9vw, 90px);
+  display: flex;
+  align-items: center;
+  background: rgba(249, 145, 9, 0.679);
+  padding: 2px 0;
+}
+
+header.shrink {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+/* ── 2. LOGO ────────────────────────────────────────────────── */
+.logo {
+  /* CAMBIO: height fluida — antes fija 85px */
+  height: clamp(60px, 8.5vw, 85px);
+  width: auto;
+  display: block;
+  object-fit: contain;
+  margin-top: -8px;
+  transition: height 0.3s ease, margin-top 0.3s ease;
+}
+
+
+/* ── 3. NAVEGACIÓN ──────────────────────────────────────────── */
+nav { margin: 0; }
+
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  /* CAMBIO: gap fluido — antes fijo 20px */
+  gap: clamp(12px, 2vw, 20px);
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+nav ul li a:hover { color: var(--dark); }
+
+/* Página activa */
+nav a[aria-current="page"] {
+  color: #f97109;
+  position: relative;
+}
+
+nav a[aria-current="page"]::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(135deg, #f49d32, #ff6b35);
+  border-radius: 10px;
+}
+
+
+/* ── 4. ACCESIBILIDAD — FOCUS ───────────────────────────────── */
+a:focus-visible {
+  outline: 2px solid rgba(249, 145, 9, 0.85);
+  outline-offset: 2px;
+}
+
+nav ul li a:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.6);
+  border-radius: 6px;
+}
+
+.btn:focus-visible,
+[class^="btn-"]:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(249, 145, 9, 0.45);
+}
+
+
+/* ── 5. MENÚ HAMBURGUESA ────────────────────────────────────── */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1101;
+}
+
+.menu-toggle .bar {
+  display: block;
+  position: relative;
+  width: 30px;
+  height: 3px;
+  margin: 4px 0;
+  background-color: #fff;
+  border-radius: 2px;
+  transition: transform 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6),
+              opacity 0.2s ease;
+}
+
+.menu-toggle.active .bar:nth-child(1) { transform: translateY(11px) rotate(45deg); }
+.menu-toggle.active .bar:nth-child(2) { opacity: 0; transform: translateX(-10px); }
+.menu-toggle.active .bar:nth-child(3) { transform: translateY(-11px) rotate(-45deg); }
+
+
+/* ── 6. RESPONSIVE ──────────────────────────────────────────── */
+
+/* MANTENER: cambia layout completo — display nav, flex-direction,
+   posicionamiento full-screen del menú móvil → NO se puede
+   reemplazar con clamp(). */
+@media (max-width: 1024px) {
+  .menu-toggle { display: flex; }
+
+  nav { display: none; }
+
+  nav.show {
+    display: flex;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.88);
+    padding: 0;
+  }
+
+  nav.show ul {
+    flex-direction: column;
+    /* CAMBIO: gap fluido dentro de la media query estructural */
+    gap: clamp(12px, 2vw, 18px);
+    text-align: center;
+    margin: 0;
+    padding: 0;
+  }
+
+  nav.show ul li a {
+    display: block;
+    /* CAMBIO: padding fluido */
+    padding: clamp(10px, 1.4vw, 14px) clamp(28px, 4vw, 40px);
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #fff;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.06);
+    transition: all 0.25s ease;
+  }
+
+  nav.show ul li a:hover {
+    background: rgba(249, 145, 9, 0.85);
+    transform: translateY(-2px);
+  }
+}
+
+@media (max-width: 480px) {
+  header .container {
+    width: 100%;
+    padding-inline: 16px;
+  }
+
+  .menu-toggle {
+    margin-left: auto;
+    flex-shrink: 0;
+    padding: 0;
+  }
+
+  .menu-toggle .bar {
+    margin: 4px auto;
+  }
+
+  .logo {
+    max-width: 180px;
+  }
+}

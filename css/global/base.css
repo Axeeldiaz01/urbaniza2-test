@@ -1,0 +1,121 @@
+/* =============================================================
+   BASE.CSS — Variables, Reset, Layout, Secciones, Componentes
+   ============================================================= */
+
+
+/* ── 1. VARIABLES GLOBALES ─────────────────────────────────── */
+:root {
+  /* Marca */
+  --primary:              #f99109;
+  --primary-soft:         #fb9f2ee2;
+  --primary-orange-light: #ffb347;
+
+  /* Texto */
+  --text-dark: #2d3436;
+  --text-gray: #636e72;
+
+  /* Fondos */
+  --bg-white:   #ffffff;
+  --section-bg: #eef1f4;
+  --card-bg:    #ffffff;
+
+  /* Bordes */
+  --border-color: #f0f0f0;
+
+  /* Gradientes */
+  --gold:          linear-gradient(135deg, #f49d32, #ffcc80);
+  --gradient-main: linear-gradient(135deg, #f49d32, #ff6b35);
+  --bg-gradient:   linear-gradient(180deg, #f4f6f8 0%, #eef1f4 100%);
+
+  /* Colores de acción */
+  --dark:        #333;
+  --whatsapp:    #25d366;
+  --email-blue:  #3498db;
+  --map-red:     #e74c3c;
+
+  /* Z-index */
+  --z-header: 900;
+  --z-overlay: 950;
+  --z-modal: 1000;
+
+  /* Radios */
+  --radius-lg: 20px;
+  --radius-xl: 26px;
+
+  /* Sombras */
+  --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.05);
+  --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.1);
+
+  /* Transiciones */
+  --transition-fast: 0.25s ease;
+  --transition-normal: 0.3s ease;
+}
+
+
+/* ── 2. RESET Y BASE ────────────────────────────────────────── */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  overflow-x: hidden;
+  font-family: "Poppins", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: rgba(249, 145, 9, 0.06);
+  color: #222;
+  /* CAMBIO: padding-top fluido — antes fijo 90px */
+  padding-top: clamp(70px, 9vw, 90px);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.container {
+  width: min(85%, 1100px);
+  margin: 0 auto;
+  padding: 0 clamp(12px, 2.5vw, 20px);
+}
+
+
+/* ── 3. SECCIONES ───────────────────────────────────────────── */
+section{
+  /* CAMBIO: margin-bottom fluido — antes 30px, 50px en móvil */
+  margin-bottom: clamp(30px, 5vw, 50px);
+}
+
+.section-title{
+  align-items: center;
+}
+
+.section-subtitle {
+  text-align: center;
+  max-width: 600px;
+  margin: 15px auto;
+  /* CAMBIO: margin-bottom fluido — antes 60px desktop / 35px móvil */
+  margin-bottom: clamp(35px, 6vw, 60px);
+  color: #666;
+}
+
+/* MANTENER: estas media queries solo ajustaban margin-bottom,
+   ya absorbidas por clamp() — se eliminan */
+/* ──── ELIMINADAS ────
+@media (max-width: 768px) {
+  section           { margin-bottom: 50px; }
+  .section-title    { margin-bottom: 15px; }
+  .section-subtitle { margin-bottom: 35px; }
+}
+──────────────────── */
+
+/* ── 9. UTILIDADES JS ───────────────────────────────────────── */
+.body-no-scroll          { overflow: hidden; }
+.body-scroll             { overflow: auto; }
