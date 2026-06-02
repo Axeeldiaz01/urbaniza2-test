@@ -1,0 +1,150 @@
+/* animations.css */
+/* Sin cambios: las propiedades aquí son transform, opacity, scale —
+   ninguna es medida fluida. No aplica clamp(). */
+
+/* reveal */
+.reveal,
+.reveal-left,
+.reveal-right {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.6s ease;
+}
+.reveal.visible,
+.reveal-left.visible,
+.reveal-right.visible,
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* keyframes */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(-50px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes modalSlideIn {
+  from { opacity: 0; transform: scale(0.9) translateY(-20px); }
+  to   { opacity: 1; transform: scale(1)   translateY(0); }
+}
+
+/* animacion de modal */
+@keyframes modalFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes modalPop {
+  from {
+    transform: scale(0.9) translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+/*ANIMACION DE NOSOTROS*/
+/* Reveal inmediato al cargar */
+.reveal-immediate {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: revealImmediate 0.8s ease forwards;
+  animation-delay: 0.35s;
+}
+
+@keyframes revealImmediate {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ANIMACIONES DE BLOG */
+@keyframes fadeModal {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ANIMACIONES DE CONTACTO */
+@keyframes modalUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes checkBounce {
+  0%   { transform: scale(0);   opacity: 0; }
+  50%  { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(1);   opacity: 1; }
+}
+/* ═══════════════════════════════════════
+   HERO SLIDER MOBILE ANIMATIONS - INDEX.CSS
+═══════════════════════════════════════ */
+@media (max-width: 768px) {
+
+  .slide {
+    opacity: 0;
+    transform: scale(1.1);
+    transition:
+      opacity .9s ease,
+      transform 1.4s ease;
+  }
+
+  .slide.active {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .slide img {
+    transition: transform 8s ease;
+  }
+
+  .slide.active img {
+    transform: scale(1.06);
+  }
+
+}
+
+/* ═══════════════════════════════════════
+   CARRUSEL SURCO - ANIMACIÓN MÓVIL - TERRENOS.CSS
+═══════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  .carrusel-slide.active {
+    animation: pruebaCarrusel 1s ease;
+  }
+
+  @keyframes pruebaCarrusel {
+    0% {
+      transform: rotate(10deg);
+    }
+    100% {
+      transform: rotate(0);
+    }
+  }
+}
