@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="es-PE">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Página no encontrada | Urbaniza2 Inmobiliaria</title>
+  
+  <!-- SEO -->
+  <meta name="description" content="Lo sentimos, la página que buscas no existe. Encuentra el terreno perfecto en Chorrillos, Chancay y Végueta con Urbaniza2.">
+  <meta name="robots" content="noindex, follow">
+  <meta name="theme-color" content="#f99109">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="img/logos/U2.png" type="image/png">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/tipografia.css">
+  <link rel="stylesheet" href="css/buttons.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
+  <style>
+    /* Reset y variables */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #faf8f5 0%, #ffffff 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    /* Contenedor principal */
+    .error-container {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 20px;
+    }
+    
+    .error-content {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    /* Código de error */
+    .error-code {
+      font-size: clamp(6rem, 15vw, 12rem);
+      font-weight: 800;
+      background: linear-gradient(135deg, #f99109, #ffb347);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      line-height: 1;
+      margin-bottom: 20px;
+      letter-spacing: -0.02em;
+    }
+    
+    /* Icono */
+    .error-icon {
+      font-size: 5rem;
+      color: #f99109;
+      margin-bottom: 20px;
+      opacity: 0.7;
+    }
+    
+    /* Título */
+    .error-title {
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      color: #1a1a1a;
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
+    
+    /* Descripción */
+    .error-description {
+      color: #666;
+      margin-bottom: 30px;
+      line-height: 1.6;
+      font-size: 1rem;
+    }
+    
+    /* Línea decorativa */
+    .error-divider {
+      width: 80px;
+      height: 3px;
+      background: linear-gradient(135deg, #f99109, #ffb347);
+      margin: 0 auto 30px auto;
+      border-radius: 3px;
+    }
+    
+    /* Caja de sugerencias */
+    .suggestions {
+      background: #fff;
+      border-radius: 16px;
+      padding: 25px;
+      margin: 30px 0;
+      text-align: left;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+      border: 1px solid #f0f0f0;
+    }
+    
+    .suggestions h3 {
+      font-size: 1.1rem;
+      margin-bottom: 15px;
+      color: #f99109;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .suggestions ul {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .suggestions li {
+      margin-bottom: 12px;
+    }
+    
+    .suggestions a {
+      color: #333;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: color 0.3s ease;
+    }
+    
+    .suggestions a:hover {
+      color: #f99109;
+    }
+    
+    .suggestions a i {
+      color: #f99109;
+      font-size: 0.8rem;
+    }
+    
+    /* Botones */
+    .error-buttons {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+    
+    .btn-home {
+      background: #f99109;
+      color: white;
+      padding: 12px 28px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+      border: 2px solid #f99109;
+    }
+    
+    .btn-home:hover {
+      background: #e07b1f;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(249, 145, 9, 0.3);
+    }
+    
+    .btn-contact {
+      background: transparent;
+      color: #f99109;
+      padding: 12px 28px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+      border: 2px solid #f99109;
+    }
+    
+    .btn-contact:hover {
+      background: #f99109;
+      color: white;
+      transform: translateY(-2px);
+    }
+    
+    /* Header simplificado */
+    .mini-header {
+      background: rgba(249, 145, 9, 0.95);
+      padding: 15px 0;
+    }
+    
+    .mini-header .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    .mini-header .logo {
+      height: 50px;
+      width: auto;
+    }
+    
+    .mini-header a {
+      text-decoration: none;
+    }
+    
+    /* Footer simplificado */
+    .mini-footer {
+      background: #333;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      margin-top: auto;
+    }
+    
+    .mini-footer a {
+      color: #f99109;
+      text-decoration: none;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .error-container {
+        padding: 60px 20px;
+      }
+      
+      .suggestions {
+        padding: 20px;
+      }
+      
+      .error-buttons {
+        flex-direction: column;
+      }
+      
+      .btn-home,
+      .btn-contact {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header simplificado -->
+  <header class="mini-header">
+    <div class="container">
+      <a href="index.html">
+        <img src="img/logos/logourbaniza2.png" alt="Urbaniza2 Inmobiliaria" class="logo" height="50" loading="eager">
+      </a>
+    </div>
+  </header>
+
+  <!-- Contenido principal 404 -->
+  <main class="error-container">
+    <div class="error-content">
+      
+      <div class="error-icon">
+        <i class="fas fa-map-marked-alt" aria-hidden="true"></i>
+      </div>
+      
+      <div class="error-code">404</div>
+      
+      <h1 class="error-title">¡Ups! No encontramos esta página</h1>
+      
+      <div class="error-divider"></div>
+      
+      <p class="error-description">
+        Lo sentimos, la página que buscas no existe o fue movida a otra ubicación.<br>
+        Pero no te preocupes, aún puedes encontrar el terreno de tus sueños.
+      </p>
+      
+      <!-- Caja de sugerencias -->
+      <div class="suggestions">
+        <h3>
+          <i class="fas fa-lightbulb" aria-hidden="true"></i>
+          ¿Qué puedes hacer?
+        </h3>
+        <ul>
+          <li>
+            <a href="index.html">
+              <i class="fas fa-home" aria-hidden="true"></i>
+              Ir al inicio
+            </a>
+          </li>
+          <li>
+            <a href="paginas/terrenos.html">
+              <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+              Ver terrenos disponibles
+            </a>
+          </li>
+          <li>
+            <a href="paginas/contacto.html">
+              <i class="fas fa-envelope" aria-hidden="true"></i>
+              Contactarnos directamente
+            </a>
+          </li>
+          <li>
+            <a href="https://wa.me/51982664102" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-whatsapp" aria-hidden="true"></i>
+              Consultar por WhatsApp
+            </a>
+          </li>
+        </ul>
+      </div>
+      
+      <!-- Botones de acción -->
+      <div class="error-buttons">
+        <a href="index.html" class="btn-home">
+          <i class="fas fa-home" aria-hidden="true"></i>
+          Volver al inicio
+        </a>
+        <a href="paginas/terrenos.html" class="btn-contact">
+          <i class="fas fa-search" aria-hidden="true"></i>
+          Buscar terrenos
+        </a>
+      </div>
+      
+    </div>
+  </main>
+
+  <!-- Footer simplificado -->
+  <footer class="mini-footer">
+    <div class="container">
+      <p>© 2025 Urbaniza2 Inmobiliaria — <a href="index.html">Volver al inicio</a></p>
+    </div>
+  </footer>
+
+  <!-- Script para redirigir después de 5 segundos (opcional) -->
+  <script>
+    // Opcional: redirigir al inicio después de 8 segundos
+    // setTimeout(function() {
+    //   window.location.href = 'index.html';
+    // }, 8000);
+  </script>
+
+</body>
+
+</html>
