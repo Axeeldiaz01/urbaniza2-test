@@ -1,0 +1,703 @@
+/* =============================================================
+   ARCHIVO: blog.css — ORDENADO Y LIMPIO
+   Basado en la estructura real de blog.html
+   =============================================================
+   ÍNDICE DE SECCIONES:
+   1. Blog section
+   2. Blog header
+   3. Blog grid
+   4. Blog card — delays
+   5. Blog card (base)
+   6. Card content
+   7. Card meta
+   8. Card actions
+   9. Media queries de blog
+   10. FAQ section
+   11. Media queries de FAQ
+   12. Modal blog premium
+   13. Media queries del modal
+   ============================================================= */
+/* ==========================================================
+   HERO BLOG
+   ========================================================== */
+
+.blog-hero {
+  position: relative;
+  overflow: hidden;
+
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-top: -100px;
+
+  min-height: 90vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  padding: 7rem 2rem 5rem;
+
+  text-align: center;
+
+  background:
+    linear-gradient(
+      180deg,
+      #fffaf4 0%,
+      #fdf6ee 45%,
+      #f8efe5 100%
+    );
+
+  isolation: isolate;
+}
+
+/* Decoraciones */
+.blog-hero::before {
+  content: "";
+  position: absolute;
+  top: -250px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 900px;
+  height: 900px;
+
+  background:
+    radial-gradient(circle,
+      rgba(249,145,9,0.18) 0%,
+      rgba(249,145,9,0.08) 35%,
+      transparent 75%);
+
+  pointer-events: none;
+  z-index: 0;
+}
+
+.blog-hero::after {
+  display: none;
+}
+
+.blog-hero__title,
+.blog-hero__desc{
+  position: relative;
+  z-index: 1;
+}
+.blog-hero__stats{
+  display:flex;
+  justify-content:center;
+  gap:0;
+
+  margin-top:3rem;
+
+  background:#fff;
+  border:1px solid rgba(249,145,9,.15);
+  border-radius:24px;
+
+  box-shadow:
+    0 12px 35px rgba(0,0,0,.05);
+
+  overflow:hidden;
+}
+
+.blog-hero__stats div{
+  padding:1.8rem 2.5rem;
+  min-width:180px;
+}
+
+.blog-hero__stats div:not(:last-child){
+  border-right:1px solid rgba(0,0,0,.08);
+}
+
+.blog-hero__stats strong{
+  display:block;
+
+  color:#f99109;
+
+  margin-bottom:.4rem;
+}
+
+.blog-hero__stats span{
+  color:#777;
+}
+/* Badge */
+.blog-hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  margin-bottom: 1.5rem;
+  background: rgba(249, 145, 9, 0.1);
+  border: 1px solid rgba(249, 145, 9, 0.35);
+  color: #c97000;
+  backdrop-filter: blur(10px);
+  border-radius: 999px;
+}
+
+.blog-hero__badge svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+.blog-hero__title {
+  max-width: 1100px;
+  margin: 0;
+
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  color: #f99109;
+
+}
+
+.blog-hero__title span {
+  display: block;
+
+  margin-top: 1.25rem;
+
+  color: #111;
+
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Descripción */
+.blog-hero__desc {
+  max-width: 760px;
+
+  margin: 2rem auto 0;
+
+  color: #666;
+
+  line-height: 1.8;
+}
+
+/* Meta */
+.blog-hero__meta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+
+  margin-top: 1rem;
+  padding: 1.2rem 1.8rem;
+
+  background: #fff;
+  border-radius: 18px;
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,.05);
+
+  border: 1px solid rgba(249,145,9,.15);
+}
+
+/* ==========================================================
+   RESPONSIVE
+   ========================================================== */
+
+@media (max-width: 768px) {
+  .blog-hero {
+    padding: 3rem 1.25rem;
+    border-radius: 20px;
+  }
+
+  .blog-hero__desc {
+    margin-bottom: 1.5rem;
+  }
+
+  .blog-hero__meta {
+    width: 100%;
+    padding: 1rem;
+    line-height: 1.6;
+  }
+}
+
+@media (max-width: 480px) {
+  .blog-hero {
+    padding: 2.5rem 1rem;
+  }
+
+  .blog-hero__badge {
+    font-size: 0.72rem;
+  }
+
+  .blog-hero__meta {
+    font-size: 0.85rem;
+  }
+}
+/* ── 1. BLOG SECTION ────────────────────────────────────────── */
+.blog-section {
+  padding: 60px 20px;
+  background-color: transparent;
+  text-align: center;
+}
+
+/* ── 2. BLOG HEADER ─────────────────────────────────────────── */
+.blog-header {
+  margin-bottom: 50px;
+}
+.blog-header p {
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.blog-header h1 {
+  color: rgba(240, 161, 58, 0.679);
+  margin: 0;
+  margin-top: 30px;
+}
+
+/* ── 3. BLOG GRID ───────────────────────────────────────────── */
+.blog-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 35px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  align-items: stretch;
+}
+
+/* ── 4. BLOG CARD — DELAYS ──────────────────────────────────── */
+.blog-card:nth-child(1) { transition-delay: .1s; }
+.blog-card:nth-child(2) { transition-delay: .2s; }
+.blog-card:nth-child(3) { transition-delay: .3s; }
+.blog-card:nth-child(4) { transition-delay: .4s; }
+.blog-card:nth-child(5) { transition-delay: .5s; }
+.blog-card:nth-child(6) { transition-delay: .6s; }
+.blog-card:nth-child(7) { transition-delay: .7s; }
+.blog-card:nth-child(8) { transition-delay: .8s; }
+.blog-card:nth-child(9) { transition-delay: .9s; }
+
+/* ── 5. BLOG CARD (base) ────────────────────────────────────── */
+.blog-card {
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border: 1px solid #f0f0f0;
+  max-width: 380px;
+  width: 100%;
+  margin: 0 auto;
+}
+.blog-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  border-color: #f97109;
+}
+
+/* ── 6. CARD CONTENT ────────────────────────────────────────── */
+.card-content {
+  padding: 22px 20px 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.card-content h3 {
+  margin: 0 0 10px;
+  color: #0d1c2f;
+  font-size: var(--title-h3, 1.1rem);
+}
+.card-content p {
+  color: #666;
+  margin: 0 0 18px;
+}
+
+/* ── 7. CARD META ───────────────────────────────────────────── */
+.card-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  flex-shrink: 0;
+}
+.card-meta .date {
+  color: #888;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+.card-meta .category {
+  background-color: rgba(249, 113, 9, 0.1);
+  color: #f97109;
+  padding: 4px 12px;
+  border-radius: 10px;
+  white-space: nowrap;
+}
+
+/* ── 8. CARD ACTIONS ────────────────────────────────────────── */
+.card-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: auto;
+  align-items: stretch;
+}
+.card-actions .btn-secondary {
+  width: 100%;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 10px 16px;
+  text-align: center;
+}
+
+/* ── 9. MEDIA QUERIES DE BLOG ───────────────────────────────── */
+@media (max-width: 768px) {
+  .blog-card {
+    max-width: 500px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  .card-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .card-actions .btn-read,
+  .card-actions .btn-secondary {
+    width: 100%;
+    min-width: 0;
+    text-align: center;
+  }
+  .card-content h3,
+  .card-content p {
+    min-height: unset;
+    max-height: none;
+    overflow: visible;
+    display: block;
+    white-space: normal;
+  }
+}
+@media (max-width: 480px) {
+  .blog-section {
+    padding: 40px 15px;
+  }
+  .blog-container {
+    padding: 15px 10px;
+  }
+  .card-content {
+    padding: 18px 16px 16px;
+  }
+  .card-meta {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+}
+
+/* ── 10. FAQ SECTION ────────────────────────────────────────── */
+.faq-section {
+  padding: 60px 20px;
+  background: none;
+  margin: 0;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+}
+.faq-section h2 {
+  text-align: center;
+  font-weight: 800;
+  color: rgba(240, 161, 58, 0.679);
+  margin-bottom: 50px;
+}
+.faq-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.faq-item {
+  margin-bottom: 20px;
+  background: var(--bg-white);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-soft);
+}
+.faq-question {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  color: var(--text-dark);
+  transition: color 0.3s ease;
+}
+.faq-question i {
+  color: var(--primary-orange);
+  transition: transform 0.4s ease;
+  flex-shrink: 0;
+}
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 24px;
+  opacity: 0;
+  transition: all 0.4s ease;
+  color: var(--text-gray);
+  line-height: 1.8;
+}
+.faq-item.active {
+  border: 2px solid #f99109;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(249, 145, 9, 0.1);
+}
+.faq-item.active .faq-question {
+  color: #f99109;
+}
+.faq-item.active .faq-question i {
+  transform: rotate(180deg);
+}
+.faq-item.active .faq-answer {
+  max-height: 800px;
+  padding-bottom: 24px;
+  opacity: 1;
+}
+
+/* ── 11. MEDIA QUERIES DE FAQ ───────────────────────────────── */
+@media (max-width: 768px) {
+  .faq-section {
+    padding: 50px 15px;
+  }
+  .faq-section h2 {
+    margin-bottom: 35px;
+  }
+  .faq-container {
+    width: 100%;
+  }
+  .faq-item {
+    margin-bottom: 14px;
+    border-radius: 14px;
+  }
+  .faq-question {
+    padding: 18px 16px;
+    gap: 14px;
+    align-items: flex-start;
+  }
+
+  .faq-question span,
+  .faq-question h3 {
+    flex: 1;
+  }
+
+  .faq-question i {
+    font-size: 0.9rem;
+    margin-top: 4px;
+    flex-shrink: 0;
+  }
+  .faq-answer {
+    padding: 0 16px;
+  }
+  .faq-item.active .faq-answer {
+    padding-bottom: 18px;
+  }
+}
+
+/* ── 12. MODAL BLOG PREMIUM ─────────────────────────────────── */
+.article-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  overflow-y: auto;
+  padding: 40px 20px;
+  animation: fadeModal .35s ease;
+}
+.modal-content {
+  position: relative;
+  background: #ffffff;
+  width: min(900px, 100%);
+  margin: auto;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, .18), 0 8px 30px rgba(249, 145, 9, .12);
+  animation: modalUp .35s ease;
+}
+.modal-content::before {
+  content: "";
+  display: block;
+  height: 8px;
+  width: 100%;
+  background: linear-gradient(90deg, #f99109, #ffb347, #f99109);
+}
+#modalContent {
+  padding: 40px;
+  padding-top: 85px;
+  text-align: left;
+}
+#modalContent h2 {
+  font-size: clamp(2rem, 4vw, 2.6rem);
+  line-height: 1.2;
+  font-weight: 800;
+  color: #0d1c2f;
+  margin-bottom: 20px;
+  padding-right: 50px;
+}
+#modalContent h3 {
+  font-size: 1.35rem;
+  color: #f99109;
+  margin-top: 35px;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+#modalContent h4 {
+  font-size: 1.1rem;
+  color: #0d1c2f;
+  margin-bottom: 12px;
+}
+#modalContent p,
+#modalContent li {
+  font-size: 1rem;
+  line-height: 1.9;
+  color: #555;
+}
+#modalContent ul,
+#modalContent ol {
+  padding-left: 25px;
+}
+#modalContent li {
+  margin-bottom: 10px;
+}
+.close-modal {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(255,255,255,.95), rgba(245,245,245,.85));
+  border: 1px solid rgba(255,255,255,.6);
+  box-shadow: 0 10px 25px rgba(0,0,0,.08), inset 0 1px 0 rgba(255,255,255,.7);
+  font-size: 2rem;
+  font-weight: 300;
+  line-height: 1;
+  color: #666;
+  cursor: pointer;
+  transition: all .25s ease;
+  z-index: 20;
+}
+.close-modal:hover {
+  background: #f99109;
+  color: white;
+  transform: rotate(90deg) scale(1.08);
+}
+.close-modal:focus-visible {
+  outline: 3px solid rgba(249,145,9,.35);
+  outline-offset: 3px;
+}
+/* Tarjetas internas del contenido */
+.blog-content-green   { background: linear-gradient(135deg, #effcf4, #d9f7e5); }
+.blog-content-blue    { background: linear-gradient(135deg, #eef6ff, #dbeeff); }
+.blog-content-warning { background: linear-gradient(135deg, #fff8ec, #ffecc8); }
+.blog-content-general { background: #f8f8f8; }
+.blog-content-orange  { background: linear-gradient(135deg, #fff3ea, #ffe3c9); }
+.blog-content-light-green { background: linear-gradient(135deg, #edfdf0, #daf5df); }
+.blog-content-green,
+.blog-content-blue,
+.blog-content-warning,
+.blog-content-general,
+.blog-content-orange,
+.blog-content-light-green {
+  margin-top: 30px;
+  padding: 28px;
+  border-radius: 24px;
+  border: 1px solid rgba(0,0,0,.05);
+}
+/* Botones del modal */
+.blog-btn-whatsapp,
+.blog-btn-blue,
+.blog-btn-orange,
+.blog-btn-orange-alt,
+.blog-btn-green {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 18px;
+  padding: 14px 26px;
+  border-radius: 14px;
+  text-decoration: none;
+  background: linear-gradient(135deg, #f99109, #ffb347);
+  color: white;
+  font-weight: 700;
+  transition: all .3s ease;
+}
+.blog-btn-whatsapp:hover,
+.blog-btn-blue:hover,
+.blog-btn-orange:hover,
+.blog-btn-orange-alt:hover,
+.blog-btn-green:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(249,145,9,.25);
+}
+.modal-content::-webkit-scrollbar {
+  width: 10px;
+}
+.modal-content::-webkit-scrollbar-thumb {
+  background: #f99109;
+  border-radius: 20px;
+}
+.body-no-scroll {
+  overflow: hidden;
+}
+
+/* ── 13. MEDIA QUERIES DEL MODAL ────────────────────────────── */
+@media (max-width: 768px) {
+  .article-modal {
+    padding: 20px 12px;
+  }
+  .modal-content {
+    border-radius: 24px;
+  }
+  #modalContent {
+    padding: 28px 22px;
+    padding-top: 80px;
+  }
+  #modalContent h2 {
+    font-size: 1.7rem;
+    padding-right: 30px;
+  }
+  .close-modal {
+    width: 46px;
+    height: 46px;
+    font-size: 1.7rem;
+    top: 16px;
+    right: 16px;
+  }
+}
+@media (max-width: 480px) {
+  #modalContent {
+    padding: 24px 18px;
+    padding-top: 75px;
+  }
+  #modalContent h2 {
+    font-size: 1.5rem;
+  }
+  #modalContent p,
+  #modalContent li {
+    font-size: .95rem;
+    line-height: 1.8;
+  }
+  .blog-btn-whatsapp,
+  .blog-btn-blue,
+  .blog-btn-orange,
+  .blog-btn-orange-alt,
+  .blog-btn-green {
+    width: 100%;
+  }
+}

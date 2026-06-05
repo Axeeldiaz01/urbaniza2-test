@@ -1,0 +1,658 @@
+/* terrenos.css - ordenado y limpio */
+
+:root {
+  --terrenos-card-bg: #ffffff;
+  --terrenos-border: #f0f0f0;
+  --terrenos-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  --terrenos-shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.1);
+  --terrenos-radius: 20px;
+  --terrenos-transition: 0.3s ease;
+  --terrenos-precio-color: #f3a530;
+  --terrenos-buscador-bg: #fff;
+  --terrenos-buscador-shadow: 0 15px 40px rgba(0, 0, 0, 0.06);
+  --terrenos-input-border: #e2e8f0;
+  --terrenos-input-bg: #f9fafb;
+  --terrenos-focus: #ff9800;
+}
+
+/* ============================================================
+   1. BUSCADOR DE INMUEBLES - REDISEÑO ASIMÉTRICO PREMIUM
+   ============================================================ */
+
+.hero-terrenos {
+  position: relative;
+  min-height: 85vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  padding: 60px 40px;
+  /* Fondo claro texturizado estilo Neumorfismo/Limpio */
+  background-color: #fdf6ee;
+  background-image: 
+    radial-gradient(circle at 20% 30%, rgba(255, 152, 0, 0.04) 0%, transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(249, 145, 9, 0.04) 0%, transparent 40%),
+    linear-gradient(rgba(249, 145, 9, 0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(249, 145, 9, 0.015) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+}
+
+/* Grid contenedor para dividir la pantalla en 2 */
+.hero-container-grid {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 60px;
+  align-items: center;
+}
+
+/* Efectos de luces sutiles en las esquinas */
+.hero-shape {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  z-index: 1;
+  opacity: 0.5;
+  pointer-events: none;
+}
+.shape-1 { top: -10%; left: -5%; width: 450px; height: 450px; background: rgba(255,152,0,0.2); }
+.shape-2 { bottom: -10%; right: 10%; width: 500px; height: 500px; background: rgba(249,145,9,0.15); }
+.shape-3 { top: 30%; left: 45%; width: 250px; height: 250px; background: rgba(255,255,255,0.8); filter: blur(40px); }
+
+.hero-overlay {
+  display: none;
+}
+
+/* Columna de Textos */
+.hero-text-side {
+  text-align: left;
+}
+
+.hero-title {
+  color: #1a1a1a;
+  margin-bottom: 25px;
+  line-height: 1.2;
+}
+
+.hero-title span {
+  color: #ff9800;
+  position: relative;
+}
+
+/* Detalle moderno: línea de diseño tipo marcador bajo el texto resaltado */
+.hero-title span::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 4px;
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 152, 0, 0.15);
+  z-index: -1;
+  border-radius: 4px;
+}
+
+.hero-description {
+  color: #555555;
+  max-width: 550px;
+  margin: 0;
+}
+
+/* Columna del Buscador (Diseño estilo Tarjeta/Dashboard) */
+.hero-search-side {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.hero-search {
+  width: 100%;
+  max-width: 440px;
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(249, 145, 9, 0.2);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 32px;
+  padding: 35px;
+  display: flex;
+  /* Cambio clave: Distribución vertical mucho más limpia */
+  flex-direction: column;
+  align-items: stretch;
+  gap: 25px;
+  box-shadow:
+    0 10px 30px -10px rgba(249, 145, 9, 0.05),
+    0 40px 70px -15px rgba(249, 145, 9, 0.12);
+  transition: transform .4s cubic-bezier(0.16, 1, 0.3, 1), border-color .4s;
+}
+
+.hero-search:hover {
+  transform: translateY(-5px);
+  border-color: rgba(249, 145, 9, 0.35);
+}
+
+.search-card-label {
+  color: #1a1a1a;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+  opacity: 0.85;
+  text-align: left;
+}
+
+/* Pestañas de Selección Internas */
+.hero-tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.tab {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  background: rgba(255, 255, 255, 0.6);
+  color: #555555;
+  padding: 14px;
+  border-radius: 14px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.25s ease;
+  text-align: center;
+}
+
+.tab:hover {
+  border-color: #f99109;
+  color: #f99109;
+  background: #fff;
+}
+
+.tab.active {
+  background: #ff9800;
+  border-color: #ff9800;
+  color: #fff;
+  box-shadow: 0 8px 20px -6px rgba(255, 152, 0, 0.4);
+}
+
+/* Botón de Acción Principal */
+.btn-buscar {
+  border: none;
+  background: linear-gradient(135deg, #ff9800, #ff7a00);
+  color: #fff;
+  padding: 18px;
+  border-radius: 16px;
+  cursor: pointer;
+  font-weight: 600;
+  text-align: center;
+  box-shadow: 0 10px 25px -5px rgba(255, 122, 0, 0.35);
+  transition: all .3s ease;
+}
+
+.btn-buscar:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px -5px rgba(255, 122, 0, 0.5);
+  filter: brightness(1.05);
+}
+
+/* Adaptabilidad para Pantallas Medianas y Móviles */
+@media (max-width: 992px) {
+  .hero-terrenos {
+    padding: 60px 24px;
+  }
+  .hero-container-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+  .hero-text-side {
+    text-align: center;
+  }
+  .hero-description {
+    margin: auto;
+  }
+  .hero-search-side {
+    justify-content: center;
+  }
+  .hero-search {
+    max-width: 500px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-tabs {
+    grid-template-columns: 1fr;
+  }
+}
+/* ============================================================
+   2. TERRENOS DISPONIBLES
+   ============================================================ */
+#terrenos-disponibles {
+  padding: 80px 0;
+}
+
+#terrenos-disponibles .section-subtitle {
+  color: #666;
+}
+
+#terrenos-disponibles .container {
+  width: 100%;
+  max-width: 1100px;
+  overflow-x: clip;
+}
+
+.terreno-card {
+  display: flex;
+  background: var(--terrenos-card-bg);
+  border-radius: var(--terrenos-radius);
+  overflow: hidden;
+  border: 1px solid var(--terrenos-border);
+  margin-bottom: 30px;
+  transition: var(--terrenos-transition);
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.terreno-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--terrenos-shadow-hover);
+}
+
+.terreno-img {
+  width: 400px;
+  min-width: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.terreno-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.terreno-info {
+  flex: 1 1 auto;
+  padding: 25px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  min-width: 0;
+}
+
+.terreno-info p {
+  color: #666;
+}
+
+.terreno-detalles {
+  list-style: none;
+  padding: 0;
+  margin: 10px auto 15px;
+  display: inline-block;
+  text-align: left;
+}
+
+.terreno-detalles li {
+  position: relative;
+  padding-left: 26px;
+  margin: 6px 0;
+  color: #666;
+}
+
+.terreno-detalles li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #f99109;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.precio {
+  color: var(--terrenos-precio-color);
+  margin: 15px 0;
+}
+
+.terreno-card .terreno-info .precio {
+  color: #f3a530;
+  font-size: 1.3rem;
+  font-weight: 800;
+}
+
+.card-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card-actions .btn-comprar,
+.card-actions .btn-ubicacion {
+  flex: 0 1 auto;
+}
+
+.terreno-info h3,
+.terrdis-titulo {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+/* ============================================================
+   3. CARRUSEL (para Santiago de Surco)
+   ============================================================ */
+.carrusel-chorrillos {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: white;
+
+  overflow: hidden;
+  touch-action: pan-y;
+}
+
+.carrusel-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  background: white;
+
+  transition: transform 0.45s ease;
+  will-change: transform;
+}
+
+
+.carrusel-slide {
+  min-width: 100%;
+  width: 100%;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 8px;
+}
+
+.carrusel-slide.active {
+  opacity: 1;
+}
+
+.carrusel-slide img {
+  max-width: 92%;
+  max-height: 92%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  margin-left: 4%;
+  display: block;
+}
+
+
+.carrusel-indicadores {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 2;
+  padding: 6px 14px;
+  background: linear-gradient(135deg, rgba(25, 25, 25, .55), rgba(0, 0, 0, .35));
+  border: 1px solid rgba(255, 255, 255, .08);
+  border-radius: 20px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, .18), inset 0 1px 0 rgba(255, 255, 255, .05);
+}
+
+.indicador {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  transition: background 0.3s;
+  border: none;
+  padding: 0;
+}
+
+.indicador.active {
+  background: #f99109;
+}
+
+/* ============================================================
+   4. MEDIA QUERIES (agrupadas por breakpoint)
+   ============================================================ */
+
+/* Tablet (max-width: 768px) */
+@media (max-width: 768px) {
+  /* HERO RESPONSIVE */
+
+  .hero-terrenos {
+    min-height: auto;
+    padding: 30px 20px 60px;
+  }
+
+  .hero-overlay {
+    top: -120px;
+  }
+
+  .hero-content {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .hero-title {
+    font-size: clamp(2.2rem, 7vw, 3.5rem);
+    line-height: 1.12;
+  }
+
+  .hero-description {
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 35px;
+    padding-inline: 10px;
+  }
+
+  .hero-search {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+    border-radius: 20px;
+    padding: 16px;
+  }
+
+  .hero-tabs {
+    justify-content: center;
+  }
+
+  .tab {
+    flex: 1;
+    min-width: 140px;
+    text-align: center;
+  }
+
+  .btn-buscar {
+    width: 100%;
+  }
+
+  /* Terrenos cards */
+  .terreno-card {
+    flex-direction: column;
+  }
+
+  .terreno-img {
+    width: 100%;
+    min-width: 100%;
+    height: 240px;
+  }
+
+  .terreno-info {
+    text-align: center;
+  }
+
+  .terreno-info h3,
+  .terreno-info p,
+  .precio {
+    text-align: center;
+  }
+
+  .terreno-detalles {
+    display: inline-block;
+    text-align: left;
+    margin: 10px auto 15px;
+  }
+
+  .terreno-detalles li {
+    width: fit-content;
+  }
+
+  .linea-decorativa {
+    margin-inline: auto;
+  }
+
+  .card-actions {
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  /* Carrusel */
+  .terreno-card:has(.carrusel-chorrillos) .terreno-img {
+    width: 100%;
+    min-width: 100%;
+    height: 280px;
+    position: relative;
+    background: #f5f5f5;
+  }
+
+  .carrusel-chorrillos {
+    height: 100%;
+    position: absolute;
+    inset: 0;
+  }
+
+  .carrusel-container {
+    height: 100%;
+  }
+
+  .carrusel-slide {
+    padding: 12px;
+  }
+
+  .carrusel-slide img {
+    max-width: 100%;
+    max-height: 100%;
+    margin-left: 0;
+    object-fit: contain;
+  }
+
+  .carrusel-indicadores {
+    bottom: 10px;
+  }
+}
+
+/* Móvil (max-width: 480px) */
+@media (max-width: 480px) {
+
+  /* HERO MOBILE */
+
+  .hero-terrenos {
+    padding: 20px 14px 50px;
+  }
+
+  .hero-overlay {
+    top: -90px;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+    line-height: 1.1;
+  }
+
+  .hero-description {
+    font-size: .95rem;
+    line-height: 1.6;
+    margin-bottom: 28px;
+  }
+
+  .hero-search {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 14px;
+  border-radius: 18px;
+}
+
+  .hero-tabs {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .tab {
+    width: 100%;
+    padding: 14px;
+    font-size: .95rem;
+  }
+
+  .btn-buscar {
+    width: 100%;
+    padding: 15px;
+  }
+
+  /* Terrenos cards */
+  .terreno-card:has(.carrusel-chorrillos) .terreno-img {
+    height: 240px;
+  }
+
+  .terreno-card {
+    width: calc(100% - 18px);
+    margin: 0 auto 30px;
+  }
+
+  .card-actions {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .card-actions .btn-comprar,
+  .card-actions .btn-ubicacion {
+    width: 100%;
+    max-width: 320px;
+    min-width: 260px;
+    justify-content: center;
+  }
+}
+
+/* Móviles muy pequeños (max-width: 380px) */
+@media (max-width: 380px) {
+
+  .hero-terrenos {
+    padding: 10px 10px 40px;
+  }
+
+  .hero-title {
+    font-size: 1.7rem;
+  }
+
+  .hero-description {
+    font-size: .88rem;
+  }
+
+  .hero-search {
+    padding: 12px;
+  }
+
+  .tab {
+    font-size: .9rem;
+    padding: 12px;
+  }
+
+  .btn-buscar {
+    font-size: .95rem;
+  }
+}

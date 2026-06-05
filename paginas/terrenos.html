@@ -1,0 +1,376 @@
+<!--terrenos.html-->
+<!doctype html>
+<html lang="es-PE">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- SEO básico -->
+  <title>Terrenos en Venta en Perú | Urbaniza2 Inmobiliaria</title>
+  <meta name="description"
+    content="Explora terrenos en venta en Chancay, Végueta, Huacho y Surco. Invierte con seguridad, precios accesibles y asesoría profesional con Urbaniza2.">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Urbaniza2 Inmobiliaria">
+  <meta name="theme-color" content="#f99109">
+  <meta name="format-detection" content="telephone=no">
+
+  <!-- Favicon -->
+  <link rel="icon" href="../img/logos/U2.png" type="image/png">
+  <link rel="apple-touch-icon" href="../img/logos/U2.png">
+
+  <!-- Vista previa al compartir en redes y WhatsApp -->
+  <meta property="og:title" content="Terrenos en Venta en Perú | Urbaniza2 Inmobiliaria">
+  <meta property="og:description"
+    content="Encuentra terrenos en Chancay, Végueta, Huacho y más. Compra fácil y segura.">
+  <meta property="og:image" content="https://urbaniza2.com/img/terrenos/chancay1.webp">
+  <meta property="og:url" content="https://urbaniza2.com/paginas/terrenos.html">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_PE">
+  <meta name="geo.region" content="PE-LIM">
+  <meta name="geo.placename" content="Lima">
+  <link rel="canonical" href="https://urbaniza2.com/paginas/terrenos.html">
+
+  <!-- Rendimiento -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preload" as="image" href="../img/terrenos/chancay1.webp">
+
+  <!-- Fuentes e iconos -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="../css/global/base.css">
+  <link rel="stylesheet" href="../css/global/animations.css">
+  <link rel="stylesheet" href="../css/global/layout.css">
+  <link rel="stylesheet" href="../css/global/tipografia.css">
+  <link rel="stylesheet" href="../css/global/button.css">
+  <link rel="stylesheet" href="../css/global/components.css">
+  <link rel="stylesheet" href="../css/global/decorative.css">
+  <link rel="stylesheet" href="../css/pages/terrenos.css">
+
+</head>
+
+<body>
+  <div id="top"></div>
+  <header>
+    <div class="container">
+      <a href="../index.html"><img src="../img/logos/logourbaniza2.png" alt="logo" class="logo" loading="lazy"></a>
+      <nav>
+        <ul>
+          <li><a href="../index.html">Inicio</a></li>
+          <li><a href="servicios.html">Servicios</a></li>
+          <li><a href="terrenos.html" aria-current="page">Terrenos</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="contacto.html">Contáctanos</a></li>
+          <li><a href="blog.html">Blog</a></li>
+        </ul>
+      </nav>
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </div>
+  </header>
+
+<!-- HERO / BUSCADOR DE INMUEBLES -->
+<section id="buscador" class="hero-terrenos">
+
+  <div class="hero-overlay"></div>
+  
+  <!-- Elementos de diseño geométrico abstracto -->
+  <div class="hero-shape shape-1"></div>
+  <div class="hero-shape shape-2"></div>
+  <div class="hero-shape shape-3"></div>
+
+  <div class="hero-container-grid">
+    
+    <!-- Columna Izquierda: Mensaje de Impacto -->
+    <div class="hero-text-side">
+      <h1 class="hero-title">
+        Venta de <span>Terrenos,</span><br>
+        Casas y Departamentos<br>
+        en el Perú
+      </h1>
+
+      <p class="hero-description">
+        Invierte hoy en propiedades verificadas con respaldo legal completo.
+        Tu patrimonio en las mejores zonas de crecimiento.
+      </p>
+    </div>
+
+    <!-- Columna Derecha: El Buscador como Tarjeta de Interfaz Moderna -->
+    <div class="hero-search-side">
+      <form class="hero-search" id="form-buscador">
+        
+        <span class="search-card-label">¿Qué estás buscando hoy?</span>
+
+        <div class="hero-tabs">
+          <button type="button" class="tab active" data-value="">
+            Todos
+          </button>
+
+          <button type="button" class="tab" data-value="Departamento">
+            Departamento
+          </button>
+
+          <button type="button" class="tab" data-value="Casa">
+            Casa
+          </button>
+
+          <button type="button" class="tab" data-value="Terreno">
+            Terreno
+          </button>
+        </div>
+
+        <input type="hidden" id="tipo-inmueble" value="">
+
+        <button type="submit" class="btn-buscar">
+          Buscar Propiedades →
+        </button>
+
+      </form>
+    </div>
+
+  </div>
+</section>
+
+
+  <!-- TERRENOS DISPONIBLES - TERRENOS -->
+  <section id="terrenos-disponibles">
+    <div class="container">
+      <h2 class="terrdis-titulo">Terrenos Disponibles</h2>
+      <p class="section-subtitle">
+        ¡No dejes pasar la oportunidad! Asegura el patrimonio de tu familia
+        con precios de preventa y ubicación privilegiada. 🔑
+      </p>
+
+      <!-- CARD 1 - CHANCAY -->
+      <div class="terreno-card" data-tipo="Terreno" data-ubicacion="Chancay Lima Peru">
+        <div class="terreno-img">
+          <img src="../img/terrenos/chancay1.webp" alt="Terreno en Chancay" loading="lazy">
+        </div>
+        <div class="terreno-info">
+          <h3>Chancay</h3>
+          <div class="linea-decorativa" aria-hidden="true"></div>
+
+          <ul class="terreno-detalles">
+            <li>180 m²</li>
+            <li>Excelente ubicación cerca del centro</li>
+            <li>Documentos en regla</li>
+          </ul>
+          <p class="precio">Consultar Precio</p>
+          <div class="card-actions">
+            <button class="btn-comprar" data-ubicacion="Chancay" data-area="180 m²">
+              <i class="fas fa-shopping-cart" aria-hidden="true"> </i> Comprar
+            </button>
+            <a href="#" class="btn-ubicacion" data-destino="-11.5552648,-77.2746358">
+              <i class="fas fa-map-marker-alt" aria-hidden="true"></i> Ver ubicación
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 2 - VEGUETA -->
+      <div class="terreno-card" data-tipo="Terreno" data-ubicacion="Vegueta Huaura Lima Peru">
+        <div class="terreno-img">
+          <img src="../img/terrenos/vegueta.webp" alt="Terreno en Vegueta" loading="lazy">
+        </div>
+        <div class="terreno-info">
+          <h3>Végueta</h3>
+          <div class="linea-decorativa" aria-hidden="true"></div>
+
+          <ul class="terreno-detalles">
+            <li>220 m²</li>
+            <li>Zona tranquila y en crecimiento</li>
+            <li>Perfecto para inversión</li>
+          </ul>
+          <p class="precio">Consultar Precio</p>
+          <div class="card-actions">
+            <button class="btn-comprar" data-ubicacion="Vegueta" data-area="220 m²">
+              <i class="fas fa-shopping-cart" aria-hidden="true"></i> Comprar
+            </button>
+            <a href="#" class="btn-ubicacion" data-destino="-10.994598,-77.6302965">
+              <i class="fas fa-map-marker-alt" aria-hidden="true"></i> Ver ubicación
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 3 - HUACHO -->
+      <div class="terreno-card" data-tipo="Departamento" data-ubicacion="Huacho Lima Peru">
+        <div class="terreno-img">
+          <img src="../img/terrenos/huacho.webp" alt="Departamento en Huacho" loading="lazy">
+        </div>
+        <div class="terreno-info">
+          <h3>Huacho</h3>
+          <div class="linea-decorativa" aria-hidden="true"></div>
+          <ul class="terreno-detalles">
+            <li>120 m² – 3er piso</li>
+            <li>Costado a parque infantil</li>
+            <li>Cerca a Tottus y Poder Judicial</li>
+          </ul>
+          <p class="precio">Consultar Precio</p>
+          <div class="card-actions">
+            <button class="btn-comprar" data-ubicacion="Huacho" data-area="120 m²">
+              <i class="fas fa-shopping-cart" aria-hidden="true"></i> Consultar
+            </button>
+            <a href="#" class="btn-ubicacion" data-destino="-11.1091326,-77.6029019">
+              <i class="fas fa-map-marker-alt" aria-hidden="true"></i> Ver ubicación
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 4 - SANTIAGO DE SURCO -->
+      <div class="terreno-card" data-tipo="Departamento" data-ubicacion="Santiago de Surco Lima Peru">
+        <div class="terreno-img">
+          <div class="carrusel-chorrillos">
+            <div class="carrusel-container">
+              <div class="carrusel-slide active">
+                <img src="../img/terrenos/alquila.webp" alt="Santiago de Surco 1" loading="lazy">
+              </div>
+              <div class="carrusel-slide">
+                <img src="../img/terrenos/ubicada.webp" alt="Santiago de Surco 2" loading="lazy">
+              </div>
+              <div class="carrusel-slide">
+                <img src="../img/terrenos/habitacion2.webp" alt="Santiago de Surco 3" loading="lazy">
+              </div>
+              <div class="carrusel-slide">
+                <img src="../img/terrenos/baño-prin.webp" alt="Santiago de Surco 4" loading="lazy">
+              </div>
+            </div>
+            <div class="carrusel-indicadores">
+              <button class="indicador active" aria-label="Ver imagen 1"></button>
+              <button class="indicador" aria-label="Ver imagen 2"></button>
+              <button class="indicador" aria-label="Ver imagen 3"></button>
+              <button class="indicador" aria-label="Ver imagen 4"></button>
+            </div>
+          </div>
+        </div>
+        <div class="terreno-info">
+          <h3>Santiago de Surco</h3>
+          <div class="linea-decorativa" aria-hidden="true"></div>
+          <p>Departamento en primer piso.</p>
+          <p>A una cuadra de Tottus y bancos.</p>
+          <ul class="terreno-detalles">
+            <li>Sala comedor con tragaluz</li>
+            <li>Lavandería</li>
+            <li>2 habitaciones con closet</li>
+            <li>Baño principal y de visita</li>
+          </ul>
+          <p class="precio">Consultar Precio</p>
+          <div class="card-actions">
+            <button class="btn-comprar" data-ubicacion="Surco" data-area="120 m²">
+              <i class="fas fa-shopping-cart" aria-hidden="true"></i> Comprar
+            </button>
+            <a href="#" class="btn-ubicacion" data-destino="-12.159719,-76.989647">
+              <i class="fas fa-map-marker-alt" aria-hidden="true"></i> Ver ubicación
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODAL FORMULARIO COMPRA -->
+  <div id="modal-compra" class="modal-compra" hidden>
+    <div class="modal-compra-content">
+      <div class="modal-compra-header">
+        <h2>Formulario de Compra</h2>
+        <button type="button" class="close-compra" aria-label="Cerrar formulario">&times;</button>
+      </div>
+      <div class="modal-compra-body">
+        <div class="terreno-seleccionado">
+          <h3>Terreno seleccionado</h3>
+          <div class="terreno-info">
+            <p><strong>Ubicación:</strong> <span id="info-ubicacion">-</span></p>
+            <p><strong>Área:</strong> <span id="info-area">-</span></p>
+          </div>
+        </div>
+        <form class="form-compra">
+          <div class="form-grid">
+            <div class="form-group">
+              <label>Nombre</label>
+              <input type="text" required>
+            </div>
+            <div class="form-group">
+              <label>Teléfono</label>
+              <input type="tel" required>
+            </div>
+            <div class="form-group full-width">
+              <label>Mensaje</label>
+              <textarea rows="3"></textarea>
+            </div>
+          </div>
+          <div class="form-actions">
+            <button type="button" class="btn-cancelar">Cancelar</button>
+            <button type="submit" class="btn-enviar-compra">Enviar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <a class="scrollToHome" href="#top">
+    <i class="fa fa-angle-up"></i>
+  </a>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <h3>Urbaniza2 Inmobiliaria</h3>
+        <p>Compra, vende e invierte en terrenos con seguridad y confianza.</p>
+      </div>
+      <div class="footer-social">
+        <span>Síguenos</span>
+        <div class="redes-sociales">
+          <a href="https://www.facebook.com/urbaniza2inmobiliaria?mibextid=ZbWKwL" target="_blank"
+            rel="noopener noreferrer" aria-label="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://www.tiktok.com/@urbaniza2inmobiliaria" target="_blank" rel="noopener noreferrer"
+            aria-label="TikTok">
+            <i class="fab fa-tiktok"></i>
+          </a>
+          <a href="https://www.instagram.com/urbaniza2.inm" target="_blank" rel="noopener noreferrer"
+            aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Urbaniza2 Inmobiliaria — Todos los derechos reservados</p>
+
+      <div class="footer-legal">
+        <span>Legal</span>
+
+        <a href="privacidad.html" class="footer-privacy">
+          <i class="fas fa-shield-alt"></i>
+          Política de Privacidad
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/51982664102" class="whatsapp-float" target="_blank" rel="noopener noreferrer"
+    title="Chatea con nosotros por WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#fff" viewBox="0 0 24 24">
+      <path
+        d="M12.004 2.002C6.475 2.002 2 6.477 2 12.007c0 1.994.522 3.853 1.516 5.513L2 22l4.605-1.505A9.944 9.944 0 0012.004 22c5.528 0 10.002-4.475 10.002-9.993 0-5.53-4.474-10.005-10.002-10.005zm.007 18.002c-1.612 0-3.185-.437-4.564-1.263l-.328-.195-2.733.893.9-2.66-.212-.34a7.935 7.935 0 01-1.2-4.177c0-4.415 3.59-8.006 8.004-8.006 4.415 0 8.004 3.59 8.004 8.006 0 4.413-3.59 7.992-8.004 7.992zm4.507-5.994c-.246-.123-1.457-.72-1.683-.8-.226-.08-.392-.123-.558.124-.165.246-.64.8-.785.965-.145.165-.29.185-.536.062-.246-.123-1.04-.383-1.98-1.22-.732-.652-1.226-1.46-1.37-1.705-.145-.247-.015-.38.109-.502.112-.111.246-.29.37-.435.124-.144.165-.247.248-.412.083-.165.042-.31-.02-.435-.062-.123-.558-1.35-.764-1.845-.202-.485-.407-.42-.558-.427-.145-.006-.31-.007-.476-.007-.165 0-.435.062-.663.31-.227.248-.866.845-.866 2.06 0 1.215.886 2.39 1.008 2.554.124.165 1.742 2.658 4.225 3.724.59.254 1.05.405 1.408.519.592.188 1.132.162 1.56.098.476-.07 1.457-.595 1.663-1.173.205-.577.205-1.07.145-1.173-.062-.104-.227-.165-.476-.288z" />
+    </svg>
+  </a>
+
+  <script src="../js/main.js" defer></script>
+  <script src="../js/terreno.js" defer></script>
+  <script src="../js/ubicacion.js" defer></script>
+  <script src="../js/formulario.js" defer></script>
+</body>
+
+</html>
